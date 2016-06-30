@@ -12,7 +12,7 @@ LICENSE file in the root directory of this source tree.
     <script>
       window.fbAsyncInit = function() {
         FB.init({
-          appId: 'APP_ID',
+          appId: '1207265889334079',
           xfbml: true,
           version: 'v2.6'
         });
