@@ -1,1 +1,1 @@
-node sample.js
+web: node sample.js
