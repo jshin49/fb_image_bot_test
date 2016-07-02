@@ -63,7 +63,26 @@ var download = function(uri, filename, callback){
     request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
   });
 };
-
+var download = function(uri, filename, callback){
+  request.head(uri, function(err, res, body){
+    if (err) callback(err, filename);
+    else {
+      console.log('content-type:', res.headers['content-type']);
+      console.log('content-length:', res.headers['content-length']);
+      var stream = request(uri);
+      stream.pipe(
+        fs.createWriteStream(filename)
+          .on('error', function(err){
+            callback(error, filename);
+            stream.read();
+          })
+        )
+      .on('close', function() {
+        callback(null, filename);
+      });
+    }
+  });
+};
 /*
  * Use your own validation token. Check that the token used in the Webhook
  * setup is the same token used here.
@@ -243,7 +262,7 @@ function receivedMessage(event) {
       // console.log(messageAttachments);
       // @TODO1: Check if image / audio / video / file and save accordingly
       // @TODO2: Create random name respective to attachment type and save it in downloads
-      download(attachmentUrl, 'downloads/google.png', function(){ console.log('Downloaded ' + attachmentUrl); });
+      download(attachmentUrl, 'downloads/google.png', function(){ console.log('Failed to download ' + attachmentUrl); });
       sendAttachmentMessage(senderID, messageAttachment);
     });
     // sendTextMessage(senderID, "Message with attachment received");
