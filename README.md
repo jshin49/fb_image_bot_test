@@ -18,11 +18,8 @@ First check out the [Quickstart Guide](https://developers.facebook.com/docs/mess
 2. If existing repository, simply add a remote to heroku with this command: heroku git:remote -a YOUR_HEROKU_APP
 3. Else, run the following codes
 
-  $ heroku git:clone -a image-bot-test
-  $ cd image-bot-test
-  $ git add .
-  $ git commit -am "make it better"
-  $ git push heroku master
+  - heroku git:clone -a image-bot-test && cd image-bot-test
+  - git add . && git commit -am "make it better" && git push heroku master
 
 4. Give https://yourheroku.herokuapp.com/webhook for your webhook verificaiton URL in the Messenger App settings
 5. Voila :)
