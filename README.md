@@ -23,6 +23,7 @@ First check out the [Quickstart Guide](https://developers.facebook.com/docs/mess
   $ git add .
   $ git commit -am "make it better"
   $ git push heroku master
+
 4. Give https://yourheroku.herokuapp.com/webhook for your webhook verificaiton URL in the Messenger App settings
 5. Voila :)
 
