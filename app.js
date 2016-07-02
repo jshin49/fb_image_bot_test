@@ -92,7 +92,6 @@ app.get('/webhook', function(req, res) {
   if (req.query['hub.mode'] === 'subscribe' &&
       req.query['hub.verify_token'] === VALIDATION_TOKEN) {
     console.log("Validating webhook");
-    console.log(hub);
     res.status(200).send(req.query['hub.challenge']);
   } else {
     console.error("Failed validation. Make sure the validation tokens match.");
@@ -109,7 +108,7 @@ app.get('/webhook', function(req, res) {
  */
 app.post('/webhook', function (req, res) {
   var data = req.body;
-  // console.log(data);
+  console.log(data);
   // Make sure this is a page subscription
   if (data.object == 'page') {
     // Iterate over each entry
@@ -237,21 +236,21 @@ function receivedMessage(event) {
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
     switch (messageText) {
-      case 'image':
-        sendImageMessage(senderID);
-        break;
+      // case 'image':
+      //   sendImageMessage(senderID);
+      //   break;
 
-      case 'button':
-        sendButtonMessage(senderID);
-        break;
+      // case 'button':
+      //   sendButtonMessage(senderID);
+      //   break;
 
-      case 'generic':
-        sendGenericMessage(senderID);
-        break;
+      // case 'generic':
+      //   sendGenericMessage(senderID);
+      //   break;
 
-      case 'receipt':
-        sendReceiptMessage(senderID);
-        break;
+      // case 'receipt':
+      //   sendReceiptMessage(senderID);
+      //   break;
 
       default:
         sendTextMessage(senderID, messageText);
@@ -343,27 +342,27 @@ function sendAttachmentMessage(recipientId, messageAttachment) {
   callSendAPI(messageDataTemplate);
 }
 
-/*
- * Send a message with an using the Send API.
- *
- */
-function sendImageMessage(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "image",
-        payload: {
-          url: "http://i.imgur.com/zYIlgBl.png"
-        }
-      }
-    }
-  };
+// /*
+//  * Send a message with an using the Send API.
+//  *
+//  */
+// function sendImageMessage(recipientId) {
+//   var messageData = {
+//     recipient: {
+//       id: recipientId
+//     },
+//     message: {
+//       attachment: {
+//         type: "image",
+//         payload: {
+//           url: "http://i.imgur.com/zYIlgBl.png"
+//         }
+//       }
+//     }
+//   };
 
-  callSendAPI(messageData);
-}
+//   callSendAPI(messageData);
+// }
 
 /*
  * Send a text message using the Send API.
@@ -382,154 +381,154 @@ function sendTextMessage(recipientId, messageText) {
   callSendAPI(messageData);
 }
 
-/*
- * Send a button message using the Send API.
- *
- */
-function sendButtonMessage(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "button",
-          text: "This is test text",
-          buttons:[{
-            type: "web_url",
-            url: "https://www.oculus.com/en-us/rift/",
-            title: "Open Web URL"
-          }, {
-            type: "postback",
-            title: "Call Postback",
-            payload: "Developer defined postback"
-          }]
-        }
-      }
-    }
-  };
+// /*
+//  * Send a button message using the Send API.
+//  *
+//  */
+// function sendButtonMessage(recipientId) {
+//   var messageData = {
+//     recipient: {
+//       id: recipientId
+//     },
+//     message: {
+//       attachment: {
+//         type: "template",
+//         payload: {
+//           template_type: "button",
+//           text: "This is test text",
+//           buttons:[{
+//             type: "web_url",
+//             url: "https://www.oculus.com/en-us/rift/",
+//             title: "Open Web URL"
+//           }, {
+//             type: "postback",
+//             title: "Call Postback",
+//             payload: "Developer defined postback"
+//           }]
+//         }
+//       }
+//     }
+//   };
 
-  callSendAPI(messageData);
-}
+//   callSendAPI(messageData);
+// }
 
-/*
- * Send a Structured Message (Generic Message type) using the Send API.
- *
- */
-function sendGenericMessage(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "generic",
-          elements: [{
-            title: "rift",
-            subtitle: "Next-generation virtual reality",
-            item_url: "https://www.oculus.com/en-us/rift/",
-            image_url: "http://messengerdemo.parseapp.com/img/rift.png",
-            buttons: [{
-              type: "web_url",
-              url: "https://www.oculus.com/en-us/rift/",
-              title: "Open Web URL"
-            }, {
-              type: "postback",
-              title: "Call Postback",
-              payload: "Payload for first bubble",
-            }],
-          }, {
-            title: "touch",
-            subtitle: "Your Hands, Now in VR",
-            item_url: "https://www.oculus.com/en-us/touch/",
-            image_url: "http://messengerdemo.parseapp.com/img/touch.png",
-            buttons: [{
-              type: "web_url",
-              url: "https://www.oculus.com/en-us/touch/",
-              title: "Open Web URL"
-            }, {
-              type: "postback",
-              title: "Call Postback",
-              payload: "Payload for second bubble",
-            }]
-          }]
-        }
-      }
-    }
-  };
+// /*
+//  * Send a Structured Message (Generic Message type) using the Send API.
+//  *
+//  */
+// function sendGenericMessage(recipientId) {
+//   var messageData = {
+//     recipient: {
+//       id: recipientId
+//     },
+//     message: {
+//       attachment: {
+//         type: "template",
+//         payload: {
+//           template_type: "generic",
+//           elements: [{
+//             title: "rift",
+//             subtitle: "Next-generation virtual reality",
+//             item_url: "https://www.oculus.com/en-us/rift/",
+//             image_url: "http://messengerdemo.parseapp.com/img/rift.png",
+//             buttons: [{
+//               type: "web_url",
+//               url: "https://www.oculus.com/en-us/rift/",
+//               title: "Open Web URL"
+//             }, {
+//               type: "postback",
+//               title: "Call Postback",
+//               payload: "Payload for first bubble",
+//             }],
+//           }, {
+//             title: "touch",
+//             subtitle: "Your Hands, Now in VR",
+//             item_url: "https://www.oculus.com/en-us/touch/",
+//             image_url: "http://messengerdemo.parseapp.com/img/touch.png",
+//             buttons: [{
+//               type: "web_url",
+//               url: "https://www.oculus.com/en-us/touch/",
+//               title: "Open Web URL"
+//             }, {
+//               type: "postback",
+//               title: "Call Postback",
+//               payload: "Payload for second bubble",
+//             }]
+//           }]
+//         }
+//       }
+//     }
+//   };
 
-  callSendAPI(messageData);
-}
+//   callSendAPI(messageData);
+// }
 
-/*
- * Send a receipt message using the Send API.
- *
- */
-function sendReceiptMessage(recipientId) {
-  // Generate a random receipt ID as the API requires a unique ID
-  var receiptId = "order" + Math.floor(Math.random()*1000);
+// /*
+//  * Send a receipt message using the Send API.
+//  *
+//  */
+// function sendReceiptMessage(recipientId) {
+//   // Generate a random receipt ID as the API requires a unique ID
+//   var receiptId = "order" + Math.floor(Math.random()*1000);
 
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message:{
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "receipt",
-          recipient_name: "Peter Chang",
-          order_number: receiptId,
-          currency: "USD",
-          payment_method: "Visa 1234",
-          timestamp: "1428444852",
-          elements: [{
-            title: "Oculus Rift",
-            subtitle: "Includes: headset, sensor, remote",
-            quantity: 1,
-            price: 599.00,
-            currency: "USD",
-            image_url: "http://messengerdemo.parseapp.com/img/riftsq.png"
-          }, {
-            title: "Samsung Gear VR",
-            subtitle: "Frost White",
-            quantity: 1,
-            price: 99.99,
-            currency: "USD",
-            image_url: "http://messengerdemo.parseapp.com/img/gearvrsq.png"
-          }],
-          address: {
-            street_1: "1 Hacker Way",
-            street_2: "",
-            city: "Menlo Park",
-            postal_code: "94025",
-            state: "CA",
-            country: "US"
-          },
-          summary: {
-            subtotal: 698.99,
-            shipping_cost: 20.00,
-            total_tax: 57.67,
-            total_cost: 626.66
-          },
-          adjustments: [{
-            name: "New Customer Discount",
-            amount: -50
-          }, {
-            name: "$100 Off Coupon",
-            amount: -100
-          }]
-        }
-      }
-    }
-  };
+//   var messageData = {
+//     recipient: {
+//       id: recipientId
+//     },
+//     message:{
+//       attachment: {
+//         type: "template",
+//         payload: {
+//           template_type: "receipt",
+//           recipient_name: "Peter Chang",
+//           order_number: receiptId,
+//           currency: "USD",
+//           payment_method: "Visa 1234",
+//           timestamp: "1428444852",
+//           elements: [{
+//             title: "Oculus Rift",
+//             subtitle: "Includes: headset, sensor, remote",
+//             quantity: 1,
+//             price: 599.00,
+//             currency: "USD",
+//             image_url: "http://messengerdemo.parseapp.com/img/riftsq.png"
+//           }, {
+//             title: "Samsung Gear VR",
+//             subtitle: "Frost White",
+//             quantity: 1,
+//             price: 99.99,
+//             currency: "USD",
+//             image_url: "http://messengerdemo.parseapp.com/img/gearvrsq.png"
+//           }],
+//           address: {
+//             street_1: "1 Hacker Way",
+//             street_2: "",
+//             city: "Menlo Park",
+//             postal_code: "94025",
+//             state: "CA",
+//             country: "US"
+//           },
+//           summary: {
+//             subtotal: 698.99,
+//             shipping_cost: 20.00,
+//             total_tax: 57.67,
+//             total_cost: 626.66
+//           },
+//           adjustments: [{
+//             name: "New Customer Discount",
+//             amount: -50
+//           }, {
+//             name: "$100 Off Coupon",
+//             amount: -100
+//           }]
+//         }
+//       }
+//     }
+//   };
 
-  callSendAPI(messageData);
-}
+//   callSendAPI(messageData);
+// }
 
 /*
  * Call the Send API. The message data goes in the body. If successful, we'll
