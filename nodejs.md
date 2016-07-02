@@ -30,6 +30,7 @@ function() {
   //code
 }
 ```
+
 instead of
 
 ```javascript
@@ -47,7 +48,7 @@ function()
 }
 ```
 
-2. Length of every line should not exceed 80 characters. seperate code into different line
+2. Length of every line should not exceed 80 characters; seperate code into different line
 
 ```javascript
 {
