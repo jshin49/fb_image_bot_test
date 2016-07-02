@@ -5,11 +5,11 @@ First check out the [Quickstart Guide](https://developers.facebook.com/docs/mess
 
 Second, mkdir config and add a default.json inside config with the following contents:
 
-{
-    "appSecret": "YOURAPPSECRET",
-    "pageAccessToken": "YOURPAGEACCESSTOKEN",
-    "validationToken": "YOURVALIDATIONTOKEN"
-}
+{<br/>
+    "appSecret": "YOURAPPSECRET",<br/>
+    "pageAccessToken": "YOURPAGEACCESSTOKEN",<br/>
+    "validationToken": "YOURVALIDATIONTOKEN"<br/>
+}<br/>
 
 
 ## Running Locally
