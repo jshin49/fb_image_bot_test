@@ -27,4 +27,4 @@ First check out the [Quickstart Guide](https://developers.facebook.com/docs/mess
 4. Give https://yourheroku.herokuapp.com/webhook for your webhook verificaiton URL in the Messenger App settings
 5. Voila :)
 
-You can checkout our coding standards for [Node.js](https://github.com/jshin49/fb_image_bot_test/nodejs.md) and [Python](https://github.com/jshin49/fb_image_bot_test/python27.md).
+You can checkout our coding standards for [Node.js](nodejs.md) and [Python](python27.md).
