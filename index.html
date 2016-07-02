@@ -26,6 +26,14 @@
 
 <p>First check out the <a href="https://developers.facebook.com/docs/messenger-platform/quickstart">Quickstart Guide</a> provided by Facebook.</p>
 
+<p>Second, mkdir config and add a default.json inside config with the following contents:</p>
+
+<div class="highlight highlight-source-js"><pre>{
+  <span class="pl-s"><span class="pl-pds">"</span>appSecret<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>YOURAPPSECRET<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>pageAccessToken<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>YOURPAGEACCESSTOKEN<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>validationToken<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>YOURVALIDATIONTOKEN<span class="pl-pds">"</span></span><span class="pl-k">&lt;</span>
+}</pre></div>
+
 <h2>
 <a id="running-locally" class="anchor" href="#running-locally" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running Locally</h2>
 
@@ -49,17 +57,16 @@
 <li>
 <p>Else, run the following codes</p>
 
-<p>$ heroku git:clone -a image-bot-test
-$ cd image-bot-test
-$ git add .
-$ git commit -am "make it better"
-$ git push heroku master</p>
+<ul>
+<li>heroku git:clone -a image-bot-test &amp;&amp; cd image-bot-test</li>
+<li>git add . &amp;&amp; git commit -am "make it better" &amp;&amp; git push heroku master</li>
+</ul>
 </li>
 <li><p>Give <a href="https://yourheroku.herokuapp.com/webhook">https://yourheroku.herokuapp.com/webhook</a> for your webhook verificaiton URL in the Messenger App settings</p></li>
 <li>Voila :)</li>
 </ol>
 
-<p>You can checkout our coding standards for <a href="https://github.com/jshin49/fb_image_bot_test/blob/master/nodejs.md">Node.js</a> and <a href="https://github.com/jshin49/fb_image_bot_test/blob/master/python27.md">Python</a>.</p>
+<p>You can checkout our coding standards for <a href="nodejs.md">Node.js</a> and <a href="python27.md">Python</a>.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/jshin49/fb_image_bot_test">Fb image bot test</a> is maintained by <a href="https://github.com/jshin49">jshin49</a>.</span>
