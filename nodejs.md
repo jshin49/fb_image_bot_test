@@ -4,12 +4,13 @@
 1. Create commit per one logical change to your branch
 
 2. Please label each commit messages with followings (http://udacity.github.io/git-styleguide/)
-FEAT: new feature
-FIX: bugfix
-REFACTOR: code refactoring (no functional change)
-STYLE: formatting the code (no functional change)
-DOCS: changes to documentation (no functional change)
-CHORE: updating configurations & build tasks & etc (no production code change)
+
+- FEAT: new feature
+- FIX: bugfix
+- REFACTOR: code refactoring (no functional change)
+- STYLE: formatting the code (no functional change)
+- DOCS: changes to documentation (no functional change)
+- CHORE: updating configurations & build tasks & etc (no production code change)
 
 
 ## Coding Style Guidelines
@@ -25,44 +26,44 @@ CHORE: updating configurations & build tasks & etc (no production code change)
 
 1. Curly braces after all functions should be seperated by space, and should start on the same line.
 
-```javascript
-function() {
-  //code
-}
-```
-
-instead of
-
-```javascript
-function(){
-  //code
-}
-```
-
-or
-
-```javascript
-function()
-{
-  //code
-}
-```
+  ```javascript
+  function() {
+    //code
+  }
+  ```
+  
+  instead of
+  
+  ```javascript
+  function(){
+    //code
+  }
+  ```
+  
+  or
+  
+  ```javascript
+  function()
+  {
+    //code
+  }
+  ```
 
 2. Length of every line should not exceed 80 characters; seperate code into different line
 
-```javascript
-{
-  "status": "abcd",
-  "result": null
-};
-```
-
-instead of
-```javascript
-{
-  "status": "abcd",  "result": null
-};
-```
+  ```javascript
+  {
+    "status": "abcd",
+    "result": null
+  };
+  ```
+  
+  instead of
+  ```javascript
+  {
+    "status": "abcd",  "result": null
+  };
+  ```
 
 3. All tabs must be in a length of 2, and consisted of tabs, not spaces.
 
