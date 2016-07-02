@@ -36,9 +36,11 @@ instead of
 function(){
   //code
 }
+```
 
 or
 
+```javascript
 function()
 {
   //code
@@ -46,6 +48,7 @@ function()
 ```
 
 2. Length of every line should not exceed 80 characters. seperate code into different line
+
 ```javascript
 {
   "status": "abcd",
