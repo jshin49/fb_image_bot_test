@@ -3,6 +3,15 @@ Sending and receiving images example via Facebook Messenger Platform
 
 First check out the [Quickstart Guide](https://developers.facebook.com/docs/messenger-platform/quickstart) provided by Facebook.
 
+Second, mkdir config and add a default.json inside config with the following contents:
+
+{
+    "appSecret": "YOURAPPSECRET",
+    "pageAccessToken": "YOURPAGEACCESSTOKEN",
+    "validationToken": "YOURVALIDATIONTOKEN"
+}
+
+
 ## Running Locally
 0. Install Node and NPM and ngrok (or localtunnel)
 1. Run "sudo npm install" command to install external modules locally
